@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alexlee27/docker-practice -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true alexlee27/docker-practice npm run test
